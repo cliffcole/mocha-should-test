@@ -1,6 +1,7 @@
 class BankAccount {
     constructor() {
         this._amount = 0
+        this._totalFees = 0
     }
 
     deposit(amount) {
@@ -25,11 +26,11 @@ class BankAccount {
         }
     }
 
-    get balance() {
+    getBalance() {
         return this._amount
     }
 
-    get fees() {
+    getFees() {
         return this._totalFees
     }
 }

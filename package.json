@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter nyan __test__/**/*.spec.js"
+    "test": "mocha --reporter spec __test__/**/*.spec.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^4.0.1",
+    "should": "^13.1.2"
+  }
 }

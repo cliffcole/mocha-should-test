@@ -1,19 +1,52 @@
 let should = require('should')
 let BankAccount = require('../bankaccount') // First import!
 
-// Create a describe block with a callback
+
 describe('The BankAccount module', () => {
-    // Next declare a variable so that all our other tests
-    // can see it.
+
     let target;
     beforeEach(() => {
-        // Now assign to that variable inside this callback.
+
         target = new BankAccount()
     })
 
-    describe('The function is being tested', () => {
-        it('should do something', () => {
-            // This is where you'll write your test
+    describe('Testing deposit function', () => {
+        it('should deposit 10', () => {
+            depositAmount = 10;
+            target.deposit(depositAmount);
+            target.getBalance().should.be.equal(depositAmount);
+        })
+        it('should throw error if deposit is < 0', () => {
+            depositAmount = -10;
+            target.deposit(depositAmount).should.throw(['Cannot deposit a negative amount...']);
+        })
+    })
+
+    describe('Testing withdraw function', () => {
+        it('should deposit 20, withdraw 10 and balance should equal 10', () => {
+            withdrawAmount = 10
+            target.deposit(20);
+            target.withdraw(withdrawAmount)
+            target.getBalance().should.be.equal(10);
+        })
+        it('should deposit 20 and withdraw 10 and balance should equal 10', () => {
+            withdrawAmmount = 10;
+            target.deposit(20);
+            target.withdraw(withdrawAmount);
+            target.getBalance().should.be.equal(10);
+            target.getFees().should.be.equal(0);
+        })
+        it('should deposit 20, withdraw 30 and balance should -10 and assess 30 nsf fee', () => {
+            withdrawAmount = 30
+            target.deposit(20)
+            target.withdraw(withdrawAmount)
+            target.getBalance().should.be.equal(-40);
+            target.getFees().should.be.equal(30);
+        })
+        it('should deposit 20 and balance should equal 20', () => {
+            depositAmount = 20
+            target.deposit(depositAmount)
+            target.getBalance().should.be.equal(depositAmount);
         })
     })
 })

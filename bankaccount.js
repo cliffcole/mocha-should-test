@@ -26,11 +26,11 @@ class BankAccount {
         }
     }
 
-    getBalance() {
+    get balance() {
         return this._amount
     }
 
-    getFees() {
+    get fees() {
         return this._totalFees
     }
 }

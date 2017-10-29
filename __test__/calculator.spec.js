@@ -36,7 +36,16 @@ describe('The calculator module', () => {
         it('if y is a negative number should throw error', () => {
             x = 2
             y = -2
-            target.power(x,y).should.throw('We only support positive exponents...');
+            should(() => {
+                power(x,y)
+            }).throw();
+            /* (() => {
+                power(x,y)
+            }).should.throw(); */
+            /* testError = () => {
+                power(x,y).should.throw();
+            }
+            testError.should.throw(); */
         })
         it('if y equals 0 should return 1', () => {
             x = 2

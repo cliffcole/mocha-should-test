@@ -39,13 +39,7 @@ describe('The calculator module', () => {
             should(() => {
                 power(x,y)
             }).throw();
-            /* (() => {
-                power(x,y)
-            }).should.throw(); */
-            /* testError = () => {
-                power(x,y).should.throw();
-            }
-            testError.should.throw(); */
+            
         })
         it('if y equals 0 should return 1', () => {
             x = 2
